@@ -1,4 +1,8 @@
 # mjpegw
+
+![C Standard](https://img.shields.io/badge/C-C99-F4A261)
+[![Build Status](https://github.com/Geolm/mjpegw/actions/workflows/c-compilation.yml/badge.svg)](https://github.com/geolm/mjpegw/actions)
+
 Tiny C99 library for creating MJPEG AVI files. No external dependencies.
 
 ## Simple Interface
