@@ -353,11 +353,11 @@ void jpeg_write_func(void* context, void* data, int size)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
-void mjpegw_add_frame(mjpegw_context *ctx, const uint8_t* pixels, const int quality)
+void mjpegw_add_frame(mjpegw_context *ctx, const void* pixels, const int quality)
 {
     ctx->jpeg_size = 0;
 
-    tje_encode_with_func(jpeg_write_func, ctx, quality, ctx->width, ctx->height, 4, pixels);
+    tje_encode_with_func(jpeg_write_func, ctx, quality, ctx->width, ctx->height, 4, (const unsigned char*)pixels);
     
     if(ctx->idx_count >= ctx->idx_capacity)
     {
@@ -521,22 +521,6 @@ static const uint8_t tjei_default_qt_luma_from_spec[] =
    49,64,78,87,103,121,120,101,
    72,92,95,98,112,100,103, 99,
 };
-
-// Unused
-#if 0
-static const uint8_t tjei_default_qt_chroma_from_spec[] =
-{
-    // K.1 - suggested chrominance QT
-   17,18,24,47,99,99,99,99,
-   18,21,26,66,99,99,99,99,
-   24,26,56,99,99,99,99,99,
-   47,66,99,99,99,99,99,99,
-   99,99,99,99,99,99,99,99,
-   99,99,99,99,99,99,99,99,
-   99,99,99,99,99,99,99,99,
-   99,99,99,99,99,99,99,99,
-};
-#endif
 
 static const uint8_t tjei_default_qt_chroma_from_paper[] =
 {

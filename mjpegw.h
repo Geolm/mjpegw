@@ -34,12 +34,12 @@ struct mjpegw_context* mjpegw_open(const char *filename, uint32_t width, uint32_
 //-----------------------------------------------------------------------------------------------------------------------------
 // Adds a new frame to the video
 //          [ctx]               Previous created context
-//          [pixels]            Pointer to RGBA data
+//          [pixels]            Pointer to R8G8B8A8 data (32 bits per pixel)
 //          [quality]           JPEG Compresion setring 
 //                                  3: Highest. Compression varies wildly (between 1/3 and 1/20).
 //                                  2: Very good quality. About 1/2 the size of 3.
 //                                  1: Noticeable. About 1/6 the size of 3, or 1/3 the size of 2.
-void mjpegw_add_frame(struct mjpegw_context *ctx, const uint8_t* pixels, const int quality);
+void mjpegw_add_frame(struct mjpegw_context *ctx, const void* pixels, const int quality);
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
