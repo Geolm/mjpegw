@@ -73,7 +73,7 @@ void mjpegw_add_frame(struct mjpegw_context *ctx, const void* pixels, const int 
 
 //-----------------------------------------------------------------------------------------------------------------------------
 // Finalizes and closes the AVI file
-//          [ctx]               Previous created context
+//          [ctx]               Previous created context, will be freed by this function
 void mjpegw_close(struct mjpegw_context *ctx);
 
 

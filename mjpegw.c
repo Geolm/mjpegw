@@ -447,6 +447,7 @@ void mjpegw_close(mjpegw_context *ctx)
 
     fclose(ctx->f);
     ctx->f = NULL;
+    ctx->mem.free_fn(ctx, ctx->mem.user);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------
